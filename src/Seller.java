@@ -1,5 +1,7 @@
 public class Seller extends Person{
 
     public void showMenu(){}
-    public ProductMenu CreateProductMenu(){}
+    public ProductMenu CreateProductMenu(){
+        return new MeatProductMenu();
+    }
 }

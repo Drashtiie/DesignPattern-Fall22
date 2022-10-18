@@ -1,8 +1,3 @@
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event;
-
 public class Facade {
     private int UserType;
     private Product theSelectedProduct;
@@ -10,7 +5,13 @@ public class Facade {
     private Person thePerson;
     private ClassProductList theProductList;
 
-    public boolean login(){};
+    public void facade(){
+         };
+
+    public int login(Login object){
+        return object.login();
+
+    }
     public void addTrading(){}
     public void viewTrading(){}
     public void decideBidding(){}
@@ -19,9 +20,11 @@ public class Facade {
     public void remind(){}
     public void productOperation(){}
     public void attachProductToUser(){}
-    public void createUser(UserinfoItem userinfoitem){}
+//    public void createUser(UserinfoItem userinfoitem){}
     public void createProductlist(){}
-    public Product SelectProduct(){}
+    public Product SelectProduct(){
+        return theSelectedProduct;
+    }
 
 
 }
