@@ -2,11 +2,18 @@ public class Buyer extends Person{
 //    ProductMenu a = new ProductMenu();
 
     Buyer(){
-        System.out.println("in buyer const");
+        System.out.println("buyer constructor");
     }
-    public void showMenu(){}
+    public void showMenu(){
+        System.out.println("Menu items");
+
+    }
      public ProductMenu CreateProductMenu(){
-        return new MeatProductMenu() {
-        };
+         String s = "Meat Produce";
+         if (s.equalsIgnoreCase("Meat Produce")) {
+             return new MeatProductMenu();
+         } else {
+             return new ProduceProductMenu();
+         }
      }
 }

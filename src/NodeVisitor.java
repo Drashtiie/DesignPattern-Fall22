@@ -1,5 +1,5 @@
 abstract class NodeVisitor {
-    abstract void visitProduct(Product product);
+    abstract Reminder visitProduct(ProductList product);
 
     abstract void visitTrading(Trading trading);
 

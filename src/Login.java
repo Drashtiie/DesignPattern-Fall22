@@ -17,8 +17,11 @@ public class Login {
         if(username=="tutu" && password == "1111" || username=="mimi" && password == "2222"){
         userType =0;
         }
-        else{
+        else if(username=="pepe" && password == "3333"){
             userType =1;
+        }
+        else{
+
         }
         return userType;
     }
