@@ -1,11 +1,28 @@
 public abstract class  ProductMenu {
 
     public abstract   void showMenu();
-    public abstract void showAddButton();
-    public abstract  void showViewButton();
-    public abstract  void showRadioButton();
-    public abstract  void showLabels();
-    public abstract void showComboxes();
+
+    public void showAddButton(){
+            System.out.println("Add Button shown");
+
+    }
+
+    public void showViewButton(){
+        System.out.println("View Button added");
+
+    };
+    public void showRadioButton(){
+        System.out.println("Radio Button shown");
+
+    };
+    public void showLabels(){
+        System.out.println("Labels shown");
+
+    };
+    public void showComboxes(){
+        System.out.println("Comboxes shown");
+
+    };
 
     public abstract void selectProduct(int UserType);
 

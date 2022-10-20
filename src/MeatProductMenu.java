@@ -1,27 +1,8 @@
 public class MeatProductMenu extends ProductMenu{
     public void showMenu(){
-        System.out.println();
+        System.out.println("Meat Produce Menu");
     };
 
-    public void showAddButton() {
-        System.out.println();
-    }
-
-    public void showViewButton() {
-        System.out.println();
-    }
-
-    public void showRadioButton() {
-        System.out.println();
-    }
-
-    public void showLabels() {
-        System.out.println();
-    }
-
-    public void showComboxes() {
-        System.out.println();
-    }
 
     public void selectProduct(int USerType) {
         System.out.println("Bridge Pattern ");

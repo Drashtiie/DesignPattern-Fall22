@@ -1,7 +1,15 @@
+import java.util.ArrayList;
+
 public class ProduceProductMenu extends
         ProductMenu {
+
+    ArrayList<String> a = new ArrayList<>();
+    ProduceProductMenu() {
+        a.add("Tomato");
+        a.add("Onion");
+    }
     public void showMenu(){
-        System.out.println();
+        System.out.println("Produce Product Menu");
     };
 
     public void showAddButton() {

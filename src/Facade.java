@@ -1,7 +1,8 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Iterator;
 public class Facade {
-    private int UserType;
+    public int UserType;
     private String theSelectedProduct;
     private int nProductCategory;
     private Person thePerson;
@@ -11,11 +12,37 @@ public class Facade {
 
         System.out.println("Facade pattern");
         UserType = login(new Login());
-        System.out.println(
-                "Select from available ProductMenu Menus \n 1. Meat Produce Menu \n 2. Produce Product Menu ");
-        Scanner scan = new Scanner(System.in);
-        theSelectedProduct = scan.nextLine();
+//        System.out.println(
+//                "Select from available ProductMenu Menus \n 1. Meat Produce Menu \n 2. Produce Product Menu ");
+//        Scanner scan = new Scanner(System.in);
+//        theSelectedProduct = scan.nextLine();
         // pattern implemented (Bridge implementation and Factory implementation
+
+//        theSelectedProduct = UserType;
+        System.out.println("Do you want to add?(1/0)");
+        Scanner scan = new Scanner(System.in);
+        int ans = scan.nextInt();
+        if(ans == 1){
+            System.out.println("Add trading");
+            this.addTrading();
+        }
+
+        System.out.println("Do you want to view trading?(1/0)");
+//        Scanner scan = new Scanner(System.in);
+        ans= scan.nextInt();
+        if(ans==1){
+            viewTrading();
+        }
+        UserInfoItem a = new UserInfoItem(0,"Drashti");
+        createUser(a);
+        ProductList pList= new ProductList();
+        System.out.println("Enter 1 for meat products and 2 for produced products");
+        int b=scan.nextInt();
+        if(b==2){
+            ProductMenu pmenu = new ProduceProductMenu();
+            pmenu.show();
+        }
+
         if (theSelectedProduct.equalsIgnoreCase("Meat Produce Menu")) {
             selectProduct(new MeatProductMenu(), UserType);
         } else if (theSelectedProduct.equalsIgnoreCase("Produce Product Menu")) {
@@ -31,8 +58,8 @@ public class Facade {
 //        @SuppressWarnings("rawtypes")
         Iterator iterate = (Iterator) p.createIterator();
         ProductIterator pIterator = new ProductIterator();
-        ProductList pList = new ProductList();
-        Iterator iterate2 = (Iterator) pList.createIterator();
+        ProductList pList1 = new ProductList();
+        Iterator iterate2 = (Iterator) pList1.createIterator();
         ProductIterator si = new ProductIterator();
         while (pIterator.hasNext(iterate)) {
             System.out.println(pIterator.Next(iterate));
@@ -40,19 +67,43 @@ public class Facade {
         }
         scan.close();
          };
+    public static void activity(){
 
+
+    }
     public int login(Login object){
+//        int a = object.login();
+//        System.out.println(a);
+//        this.activity();
         return object.login();
 
     }
-    public void addTrading(ProductMenu p){
-//        p.addTrading();
+    public void addTrading(){
+        System.out.println("Trading info generated and added");
+        if(this.UserType==0){
+            BuyerTradingMenu.buyertradingMenu();
+        }
+        else{
+            SellerTradingMenu.sellettradingMenu();
+        }
+////        p.addTrading();
     }
-    public void viewOffering(Offering a){
-        a.viewOffering();
+
+    public void viewTrading(){
+        System.out.println("Viewing trading info");
+        if(this.UserType==0){
+            BuyerTradingMenu.buyertradingMenu();
+        }
+        else{
+            SellerTradingMenu.sellettradingMenu();
+        }
+////        p.addTrading();
     }
-    public void marketOffering(Offering a){
-        a.marketOffering();
+    public void viewOffering(){
+        System.out.println("View Offerings");
+    }
+    public void markOffering(Offering a){
+        a.setDeal();
     }
     public void submitOffering(Offering a){
         a.submitOffering();
@@ -62,7 +113,10 @@ public class Facade {
 //    }
 //    public void discussBidding(){}
 //    public void submitBidding(){}
-    public void remind(){}
+    public void remind(){
+        System.out.println("This is remind message for of the upcoming overdue\n" +
+                "trading window.");
+    }
     public void productOperation(ProductMenu p){
         p.productOperation();
     }
