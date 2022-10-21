@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Seller extends Person{
 
+    //Implemented Bridge Pattern
+
     public void showMenu(int b)  {
         System.out.println("Select from available ProductMenu Menus \\n 1. Meat Produce Menu \\n 2. Produce Product Menu");
         Scanner scan = new Scanner(System.in);
@@ -16,14 +18,15 @@ public class Seller extends Person{
             ProduceProductMenu a = new ProduceProductMenu() ;
             a.showMenu(ans);
         }
-//        System.out.println("Menu items");
-
     }
+
+    //Implemented Factory Pattern
     public ProductMenu CreateProductMenu(int b){
         String s = "Meat Produce";
         if (s.equalsIgnoreCase("Meat Produce")) {
             return new MeatProductMenu();
         } else {
             return new ProduceProductMenu();
-        }}
+        }
+    }
 }

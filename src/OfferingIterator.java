@@ -1,5 +1,6 @@
 import java.util.Iterator;
-public class ProductIterator extends ListIterator{
+
+public class OfferingIterator extends ListIterator{
     public boolean hasNext(Iterator iterator){
         return iterator.hasNext();
     };
@@ -18,5 +19,7 @@ public class ProductIterator extends ListIterator{
         if (this.hasNext(iterator)) {
             iterator.next();
         }
+
     };
+
 }

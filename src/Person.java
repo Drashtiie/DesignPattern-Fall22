@@ -1,5 +1,8 @@
-abstract class Person {
 
+//Implemented Factory Pattern
+//Implemented Bridge Pattern
+
+abstract class Person {
 
     private ProductMenu theProductMenu;
     abstract void showMenu(int b) ;

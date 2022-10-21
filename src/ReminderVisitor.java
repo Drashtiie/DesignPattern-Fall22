@@ -1,41 +1,31 @@
+import java.time.Duration;
+import java.time.LocalDate;
+import java.util.HashMap;
+
+//Implemented Visitor Pattern
+
 public class ReminderVisitor extends NodeVisitor {
-
-    private Reminder m_Reminder;
-
-    public Reminder visitProduct(ProductList product){
-        System.out.println("visiting Facade");
-        return product;
-
-
+    String m_Reminder;
+    HashMap<String, LocalDate> h = new HashMap<String, LocalDate>();
+    public ReminderVisitor(){
+        h.put("Meat:Beef", LocalDate.of(2022, 12, 1));
+        h.put("Meat:Pork",LocalDate.of(2023, 1, 6));
+        h.put("Meat:Mutton",LocalDate.of(2023, 2, 1));
+        h.put("Produce:Tomato",LocalDate.of(2022, 12, 9));
+        h.put("Produce:Onion",LocalDate.of(2022, 11, 12));
     }
+    public void visitFacade(Facade facade) {
+        System.out.println("visiting trading");
+        }
     public void visitTrading(Trading trading){
-        System.out.println("visiting Assignment ....");
+        for(String key: h.keySet()){
+            System.out.println("Product = "+ key + " Total days remaining for Trading = " + Duration.between(LocalDate.now().atStartOfDay(), h.get(key).atStartOfDay()).toDays());
+        }
     }
-    public void visitFacade(Facade facade){
-        System.out.println("visiting Course");
+    public Reminder visitProduct(ProductList p){
+        System.out.println("visiting product");
+        return p;
     }
-
-
-//    String m_Reminder;
-
-//    @Override
-//    public void visitProduct(HacsFacade HF) {
-//        System.out.println("visiting Facade ....");
-//    }
-//
-//    @Override
-//    public Reminder visitAssignment(Assignment A) {
-//        System.out.println("visiting Assignment ....");
-//        return A;
-//    }
-//
-//    @Override
-//    public Reminder visitCourse(ProductList CL) {
-//        System.out.println("visiting Course");
-//        return CL;
-//
-//    }
-
 }
 
 

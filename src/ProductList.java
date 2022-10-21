@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-@SuppressWarnings("rawtypes")
+//Implemented Iterative Pattern
 public class ProductList extends Reminder {
-
     ArrayList<String> a = new ArrayList<>();
     ProductList() {
         a.add("Meat Pork");
@@ -17,12 +16,7 @@ public class ProductList extends Reminder {
         for (int i = 0; i < a.size(); i++) {
             System.out.println(a.get(i) + " ");
         }
-
     }
-//    public String get(int b){
-//        return this.a[b];
-//    }
-
     public Iterator createIterator() {
         return this.a.iterator();
     }
@@ -31,5 +25,4 @@ public class ProductList extends Reminder {
         System.out.println("Course List Reminder ...");
         return nodeVisitor.visitProduct(this);
     }
-
 }
