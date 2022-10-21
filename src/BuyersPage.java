@@ -31,6 +31,5 @@ class BuyersPage extends JFrame
 //        b.setVisible(true);
 
 
-
     }
 }  

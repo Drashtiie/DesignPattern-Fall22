@@ -8,8 +8,13 @@ public class ProduceProductMenu extends
         a.add("Tomato");
         a.add("Onion");
     }
-    public void showMenu(){
-        System.out.println("Produce Product Menu");
+
+
+    public void showMenu(int b){
+        System.out.println("Produce Produce Menu");
+        for (int i = 0; i < a.size(); i++) {
+            System.out.println(a.get(i) + " ");
+        }
     };
 
     public void showAddButton() {
@@ -36,13 +41,13 @@ public class ProduceProductMenu extends
         System.out.println("Bridge Pattern ");
         Person person;
         if (USerType == 0) {
-            person = PersonFactory.createObject("Buyer");
+            person = new  Buyer(0,"Buyer2");
 
         } else
         {
-            person = PersonFactory.createObject("Seller");
+            person = new  Buyer(0,"Seller2");
 
         }
-        person.showMenu();
+        person.showMenu(1);
     }
 }

@@ -1,6 +1,6 @@
-public abstract class  ProductMenu {
+public abstract class ProductMenu {
 
-    public abstract   void showMenu();
+    public abstract void showMenu(int a);
 
     public void showAddButton(){
             System.out.println("Add Button shown");

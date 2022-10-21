@@ -1,8 +1,8 @@
-import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Iterator;
+import java.util.Scanner;
 public class Facade {
     public int UserType;
+    public int menuType;
     private String theSelectedProduct;
     private int nProductCategory;
     private Person thePerson;
@@ -19,7 +19,7 @@ public class Facade {
         // pattern implemented (Bridge implementation and Factory implementation
 
 //        theSelectedProduct = UserType;
-        System.out.println("Do you want to add?(1/0)");
+        System.out.println("Do you want to add Trading ?(1/0)");
         Scanner scan = new Scanner(System.in);
         int ans = scan.nextInt();
         if(ans == 1){
@@ -33,24 +33,26 @@ public class Facade {
         if(ans==1){
             viewTrading();
         }
-        UserInfoItem a = new UserInfoItem(0,"Drashti");
+
+        UserInfoItem a = new UserInfoItem(this.UserType,"Drashti");
         createUser(a);
         ProductList pList= new ProductList();
-        System.out.println("Enter 1 for meat products and 2 for produced products");
-        int b=scan.nextInt();
-        if(b==2){
-            ProductMenu pmenu = new ProduceProductMenu();
-            pmenu.show();
-        }
+        selectProduct(pList);
+//        System.out.println("Enter 1 for meat products and 2 for produced products");
+//        int b=scan.nextInt();
+//        if(b==2){
+//            ProductMenu pmenu = new ProduceProductMenu();
+////            pmenu.show();
+//        }
 
-        if (theSelectedProduct.equalsIgnoreCase("Meat Produce Menu")) {
-            selectProduct(new MeatProductMenu(), UserType);
-        } else if (theSelectedProduct.equalsIgnoreCase("Produce Product Menu")) {
-            selectProduct(new ProduceProductMenu(), UserType);
-        } else {
-            System.out.println("Wrong Selection");
-            System.exit(-1);
-        }
+//        if (theSelectedProduct.equalsIgnoreCase("Meat Produce Menu")) {
+//            selectProduct(new MeatProductMenu(), UserType);
+//        } else if (theSelectedProduct.equalsIgnoreCase("Produce Product Menu")) {
+//            selectProduct(new ProduceProductMenu(), UserType);
+//        } else {
+//            System.out.println("Wrong Selection");
+//            System.exit(-1);
+//        }
         System.out.println("Implementing Visitor Pattern");
         remind();
         System.out.println("Implementing Iterator pattern");
@@ -65,12 +67,12 @@ public class Facade {
             System.out.println(pIterator.Next(iterate));
 //            System.out.println(si.Next(iterate2));
         }
+        System.out.println("Select from available Product Menus \n 1. Meat Produce Menu \n 2. Produce Product Menu");
+//         Scanner sc=new Scanner(System.in);
+        menuType= scan.nextInt();
         scan.close();
          };
-    public static void activity(){
 
-
-    }
     public int login(Login object){
 //        int a = object.login();
 //        System.out.println(a);
@@ -88,6 +90,8 @@ public class Facade {
         }
 ////        p.addTrading();
     }
+
+
 
     public void viewTrading(){
         System.out.println("Viewing trading info");
@@ -129,8 +133,17 @@ public class Facade {
     public void createProductlist(ProductMenu p){
         p.createProductList();
     }
-    public String selectProduct(ProductMenu p, int UserType){
+    public String selectProduct(ProductList p){
 //    to be checked
+
+        p.display();
+        System.out.println("Enter id of product to select");
+        Scanner s = new Scanner(System.in);
+        int t =s.nextInt();
+
+        System.out.println(p.a.get(t));
+//          String i=s.nextInt(p.getl(i));
+        Product p1 =new Product(p.a.get(t));
         return theSelectedProduct;
     }
 

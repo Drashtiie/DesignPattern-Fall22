@@ -5,7 +5,7 @@ public class ProductIterator {
     public boolean hasNext(Iterator iterator){
         return iterator.hasNext();
     };
-    public String  Next(Iterator iterator){
+    public String Next(Iterator iterator){
         if (this.hasNext(iterator)) {
             return (String )iterator.next();
         } else {

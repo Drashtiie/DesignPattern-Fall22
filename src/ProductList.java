@@ -11,7 +11,17 @@ public class ProductList extends Reminder {
         a.add("Meat Mutton");
         a.add("Produce Tomato");
         a.add("Produce Onion");
+        System.out.println("Product List created");
     }
+    public void display(){
+        for (int i = 0; i < a.size(); i++) {
+            System.out.println(a.get(i) + " ");
+        }
+
+    }
+//    public String get(int b){
+//        return this.a[b];
+//    }
 
     public Iterator createIterator() {
         return this.a.iterator();
